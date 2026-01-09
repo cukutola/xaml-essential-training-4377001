@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// HINWEIS: Diese Datei wurde automatisch generiert.
+// ZWECK: Stellt typsicheren Zugriff auf Anwendungseinstellungen bereit.
+// WICHTIG: Änderungen sollten über die Einstellungen-UI vorgenommen werden, nicht hier.
+
 namespace Content101.Properties {
     
     
