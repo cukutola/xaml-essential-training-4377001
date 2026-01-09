@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// Properties-Namespace: Container für projektspezifische Ressourcen und Einstellungen.
 namespace UnderstandNamespaces.Properties {
     using System;
     
@@ -19,15 +20,32 @@ namespace UnderstandNamespaces.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
+    
+    // AUTOGENERIERTE KLASSE: Bietet typsicheren Zugriff auf .resx-Ressourcen.
+    // EINSATZZWECK: Strings, Bilder, Icons, Sounds für Lokalisierung und Asset-Verwaltung.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    
+    // '[DebuggerNonUserCode]': Überspringt diese Klasse beim Debugging.
+    // VORTEIL: Debugger springt direkt zu relevantem Code.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    
+    // '[CompilerGenerated]': Markiert als Tool-generierten Code.
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    
+    // 'internal': Nur innerhalb dieser Assembly zugänglich.
+    // SICHERHEIT: Ressourcen-Klasse ist nicht Teil der öffentlichen API.
     internal class Resources {
         
+        // 'ResourceManager': Verwaltet den Zugriff auf lokalisierte Ressourcen.
+        // LAZY-LOADING: Wird erst bei Bedarf initialisiert.
         private static global::System.Resources.ResourceManager resourceMan;
         
+        // 'CultureInfo': Legt die Kultur für Ressourcen-Lookups fest.
+        // LOKALISIERUNG: Bestimmt, welche Sprache/Region verwendet wird.
         private static global::System.Globalization.CultureInfo resourceCulture;
         
+        // '[SuppressMessage]': Unterdrückt Code-Analyse-Warnung.
+        // GRUND: Privater Konstruktor wird durch Tool-Generierung benötigt.
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
@@ -35,10 +53,19 @@ namespace UnderstandNamespaces.Properties {
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
+        
+        // '[EditorBrowsable]': Versteckt Property in IntelliSense für normale Entwickler.
+        // ZWECK: Fortgeschrittene Property, sollte nicht direkt verwendet werden.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        
+        // 'ResourceManager': Singleton-Instanz für Ressourcen-Zugriff.
+        // VERWENDUNG: Resources.ResourceManager.GetString("KeyName")
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
+                // Lazy Initialization: Nur erstellen, wenn benötigt.
                 if (object.ReferenceEquals(resourceMan, null)) {
+                    // Erstellt ResourceManager mit vollem Ressourcen-Namen und Assembly.
+                    // "UnderstandNamespaces.Properties.Resources": Vollqualifizierter Name der .resx-Datei.
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UnderstandNamespaces.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
@@ -50,7 +77,13 @@ namespace UnderstandNamespaces.Properties {
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
+        
+        // '[EditorBrowsable]': Versteckt in IntelliSense.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        
+        // 'Culture': Überschreibt die Standard-Kultur für Ressourcen-Lookups.
+        // EINSATZZWECK: Manuelle Sprachumschaltung zur Laufzeit.
+        // BEISPIEL: Resources.Culture = new CultureInfo("de-DE") für Deutsche Ressourcen.
         internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;

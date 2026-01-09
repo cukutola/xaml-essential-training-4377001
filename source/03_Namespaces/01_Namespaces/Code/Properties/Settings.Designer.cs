@@ -8,15 +8,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// 'namespace Properties': Standard-Namespace für projektspezifische Einstellungen.
+// KONVENTION: Properties-Ordner enthält generierte Dateien (Settings, Resources, AssemblyInfo).
 namespace UnderstandNamespaces.Properties {
     
     
+    // '[CompilerGeneratedAttribute]': Markiert Code als automatisch generiert.
+    // ZWECK: Tools und Analyzer behandeln generierten Code anders.
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    
+    // '[GeneratedCodeAttribute]': Gibt das Tool an, das den Code generiert hat.
+    // WICHTIG: Verhindert Code-Coverage- und Analyse-Warnungen für generierten Code.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    
+    // 'internal': Nur innerhalb dieser Assembly sichtbar.
+    // 'sealed': Verbietet Vererbung von dieser Klasse.
+    // 'partial': Ermöglicht Erweiterung in anderen Dateien (falls nötig).
+    // ': ApplicationSettingsBase': Basisklasse für typsichere Anwendungseinstellungen.
+    // EINSATZZWECK: Speichern von User-Settings und App-Konfigurationen.
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
+        // Singleton-Pattern: Eine globale Instanz für die gesamte Anwendung.
+        // 'static': Gemeinsame Instanz für alle Aufrufer.
+        // 'Synchronized': Thread-sicher - verhindert Konflikte bei gleichzeitigem Zugriff.
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
+        // 'Default': Öffentlicher Zugriffspunkt auf die Singleton-Instanz.
+        // VERWENDUNG: Settings.Default.PropertyName
+        // BEISPIEL: Settings.Default.Save() speichert Änderungen.
         public static Settings Default {
             get {
                 return defaultInstance;
