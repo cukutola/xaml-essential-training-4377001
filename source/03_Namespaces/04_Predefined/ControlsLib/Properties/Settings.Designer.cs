@@ -8,15 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// 'BigStar.Lib.Controls.Properties': Namespace für Control Library Settings.
+// STRUKTUR: Firmenname.Bibliothek.Typ.Properties (Best Practice).
 namespace BigStar.Lib.Controls.Properties {
     
     
+    // Autogenerierte Settings-Klasse für die Control Library.
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    
+    // Settings für wiederverwendbare Control-Bibliothek.
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
+        // Singleton-Instanz.
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
+        // Zugriffspunkt für Settings.
         public static Settings Default {
             get {
                 return defaultInstance;
