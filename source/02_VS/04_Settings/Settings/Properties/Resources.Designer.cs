@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// WICHTIG: Diese Datei wurde automatisch generiert und sollte NICHT manuell bearbeitet werden!
+// Sie wird von Visual Studio's ResX-Tool erstellt und verwaltet.
+// Änderungen sollten in der .resx-Datei vorgenommen werden, nicht hier.
+
 namespace WorkWithXamlTools.Properties {
 
 
@@ -18,28 +22,59 @@ namespace WorkWithXamlTools.Properties {
 	// class via a tool like ResGen or Visual Studio.
 	// To add or remove a member, edit your .ResX file then rerun ResGen
 	// with the /str option, or rebuild your VS project.
+	// 'GeneratedCodeAttribute': Markiert diese Klasse als vom Tool generierten Code. 
+	// Code-Analyse-Tools können solchen Code überspringen.
+	// 'DebuggerNonUserCodeAttribute': Verhindert, dass der Debugger in diese Klasse springt,
+	// da es sich um generierten Code handelt, der nicht vom Benutzer geschrieben wurde.
+	// 'CompilerGeneratedAttribute': Kennzeichnet diese Klasse als vom Compiler generiert.
 	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
 	[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 	[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+	// 'internal': Diese Klasse ist nur innerhalb dieser Assembly sichtbar, nicht für andere Projekte.
+	// Dies ist der Standard für Ressourcen, da sie normalerweise projektintern verwendet werden.
 	internal class Resources {
 
+		// Statisches Feld zur Speicherung der ResourceManager-Instanz (Singleton-Pattern).
+		// 'ResourceManager': Verwaltet den Zugriff auf Ressourcen (.resx-Dateien) und ermöglicht
+		// Lokalisierung durch Laden verschiedener Ressourcendateien basierend auf der Kultur.
 		private static global::System.Resources.ResourceManager resourceMan;
 
+		// Speichert die aktuelle Kultur für Ressourcenzugriffe.
+		// 'CultureInfo': Repräsentiert eine Sprach- und Regionskonfiguration (z.B. "de-DE", "en-US").
+		// Dies ermöglicht mehrsprachige Anwendungen mit lokalisierten Ressourcen.
 		private static global::System.Globalization.CultureInfo resourceCulture;
 
+		// 'SuppressMessageAttribute': Unterdrückt Code-Analyse-Warnungen für ungenutzten privaten Code.
+		// Der Konstruktor wird nie direkt aufgerufen, ist aber für die Generierung erforderlich.
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+		// 'internal': Der Konstruktor ist nur innerhalb der Assembly sichtbar.
+		// Er ist leer, da diese Klasse nur statische Members hat.
 		internal Resources() {
 		}
 
 		/// <summary>
 		///   Returns the cached ResourceManager instance used by this class.
 		/// </summary>
+		// 'EditorBrowsableAttribute': Steuert die Sichtbarkeit in IntelliSense/Designer.
+		// 'Advanced': Diese Property wird in IntelliSense normalerweise ausgeblendet, da sie 
+		// für fortgeschrittene Szenarien gedacht ist. Reguläre Benutzer sollten direkt auf 
+		// Ressourcen zugreifen, nicht auf den ResourceManager.
 		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+		// 'internal static': Property ist nur innerhalb der Assembly sichtbar und gehört zur Klasse,
+		// nicht zu einer Instanz (statisch).
+		// Gibt den ResourceManager zurück, der für den Zugriff auf Ressourcen verwendet wird.
 		internal static global::System.Resources.ResourceManager ResourceManager {
 			get
 			{
+				// Lazy Initialization: Der ResourceManager wird erst beim ersten Zugriff erstellt.
+				// Dies spart Speicher, wenn Ressourcen nie verwendet werden.
 				if ((resourceMan == null))
 				{
+					// Erstellt einen neuen ResourceManager für diese Assembly.
+					// Parameter 1: "WorkWithXamlTools.Properties.Resources" - vollständiger Name der Ressourcendatei
+					// Parameter 2: typeof(Resources).Assembly - Die Assembly, die die Ressourcen enthält
+					// Der ResourceManager lädt die .resources-Datei (kompilierte .resx) und ermöglicht
+					// den Zugriff auf Strings, Bilder und andere eingebettete Ressourcen.
 					global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WorkWithXamlTools.Properties.Resources", typeof(Resources).Assembly);
 					resourceMan = temp;
 				}
@@ -51,14 +86,24 @@ namespace WorkWithXamlTools.Properties {
 		///   Overrides the current thread's CurrentUICulture property for all
 		///   resource lookups using this strongly typed resource class.
 		/// </summary>
+		// 'EditorBrowsableAttribute(Advanced)': Blendet diese Property in IntelliSense aus,
+		// da sie nur für fortgeschrittene Szenarien benötigt wird.
 		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+		// Property zum Überschreiben der Kultur für Ressourcenzugriffe.
+		// Ermöglicht das manuelle Festlegen der Sprache/Region für Ressourcen, unabhängig
+		// von der Thread-Kultur. Nützlich für mehrsprachige Apps.
 		internal static global::System.Globalization.CultureInfo Culture {
 			get
 			{
+				// Gibt die aktuell festgelegte Kultur zurück (oder null für Standard-Thread-Kultur).
 				return resourceCulture;
 			}
 			set
 			{
+				// Setzt eine benutzerdefinierte Kultur für alle Ressourcenzugriffe.
+				// Wenn null, verwendet der ResourceManager die CurrentUICulture des Threads.
+				// Wenn gesetzt (z.B. auf "de-DE"), werden deutsche Ressourcen geladen,
+				// unabhängig von der Systemsprache.
 				resourceCulture = value;
 			}
 		}

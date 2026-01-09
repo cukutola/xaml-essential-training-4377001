@@ -8,18 +8,41 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// WICHTIG: Diese Datei wurde automatisch generiert und sollte NICHT manuell bearbeitet werden!
+// Sie wird von Visual Studio's Settings Designer Tool erstellt.
+// Änderungen sollten im Settings Designer (Properties/Settings.settings) vorgenommen werden.
+
 namespace WorkWithXamlTools.Properties {
 
 
+	// 'CompilerGeneratedAttribute': Kennzeichnet diese Klasse als vom Compiler/Tool generiert.
+	// Code-Analyse und Debugger behandeln solchen Code speziell.
 	[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+	// 'GeneratedCodeAttribute': Markiert diese Klasse als von einem Tool generierten Code.
+	// "SettingsSingleFileGenerator" ist das Visual Studio Tool, das diese Datei erstellt hat.
 	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+	// 'internal sealed partial': 
+	// - 'internal': Nur innerhalb dieser Assembly sichtbar
+	// - 'sealed': Kann nicht vererbt werden (Performance-Optimierung)
+	// - 'partial': Ermöglicht Erweiterung durch benutzerdefinierte Partial-Klasse
+	// ': ApplicationSettingsBase': Basisklasse für stark typisierte Anwendungseinstellungen.
+	// Sie bietet Mechanismen zum Speichern und Laden von Einstellungen aus app.config oder user.config.
 	internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
 
+		// Statisches Feld für die Singleton-Instanz der Settings-Klasse.
+		// 'Synchronized': Thread-sicherer Wrapper um die Settings-Instanz. Stellt sicher,
+		// dass mehrere Threads gleichzeitig sicher auf Einstellungen zugreifen können.
+		// Dies ist wichtig in Multi-Threading-Szenarien, um Race Conditions zu vermeiden.
 		private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
 
+		// Öffentliche statische Property für Singleton-Zugriff auf die Settings.
+		// Dies ist das Singleton-Pattern: Nur eine Instanz existiert in der gesamten Anwendung.
+		// Zugriff erfolgt über Settings.Default.PropertyName (z.B. Settings.Default.Username).
 		public static Settings Default {
 			get
 			{
+				// Gibt die thread-sichere Singleton-Instanz zurück.
+				// Alle Zugriffe auf Einstellungen sollten über diese Property erfolgen.
 				return defaultInstance;
 			}
 		}
