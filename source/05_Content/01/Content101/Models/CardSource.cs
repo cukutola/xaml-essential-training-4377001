@@ -1,13 +1,26 @@
-﻿using System;
+﻿// 'using': Importiert grundlegende .NET-Namespaces.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// 'namespace': Definiert den Namensraum für Datenmodelle.
 namespace BigStar.Models
 {
+	// 'public': Macht die Klasse für XAML und andere Assemblies verfügbar.
+	// ZWECK: Datenquelle (Repository) für CollectableCard-Objekte.
+	// KONZEPT: Diese Klasse fungiert als Mock-Datenspeicher und erstellt
+	// eine Collection von Sammelkarten mit fest codierten Daten.
+	// VERWENDUNG: Wird als DataContext oder ItemsSource für Data Binding verwendet.
+	// In einer echten Anwendung würde dies durch eine Datenbank ersetzt werden.
 	public class CardSource
 	{
+		// 'private': Das private Backing-Field für die Karten-Collection.
+		// 'List<CollectableCard>': Liste aller verfügbaren Sammelkarten.
 		private List<CollectableCard> _cards;
+		
+		// KONSTRUKTOR: Erstellt und initialisiert alle Sammelkarten.
+		// ZWECK: Lädt/generiert die Karten-Daten beim ersten Erstellen der CardSource.
 		public CardSource()
 		{
 			_cards = new List<CollectableCard>();
@@ -439,10 +452,18 @@ namespace BigStar.Models
 
 
 		}
+		
+		// HILFSMETHODE: Kürzt einen Text auf eine bestimmte Länge.
+		// 'private': Nur innerhalb dieser Klasse verwendbar.
+		// PARAMETER:
+		// - 'candidate': Der zu kürzende Text
+		// - 'charCount': Maximale Anzahl von Zeichen
+		// RÜCKGABE: Gekürzter Text oder Original, wenn kürzer als charCount.
 		private string GetShortText(String candidate, int charCount)
 		{
 			if (candidate.Length > charCount)
 			{
+				// '.Substring(0, charCount)': Extrahiert die ersten charCount Zeichen.
 				return candidate.Substring(0, charCount);
 			}
 			else
@@ -452,6 +473,9 @@ namespace BigStar.Models
 
 
 		}
+		
+		// PUBLIC PROPERTY: Gibt alle Karten zurück.
+		// VERWENDUNG IN XAML: ItemsSource="{Binding CollectibleCards}"
 		public List<CollectableCard> CollectibleCards
 		{
 			get
@@ -459,6 +483,10 @@ namespace BigStar.Models
 				return _cards;
 			}
 		}
+		
+		// PUBLIC PROPERTY: Gibt Karten sortiert nach Namen zurück.
+		// 'OrderBy': LINQ-Methode für Sortierung.
+		// '.ToList()': Materialisiert die LINQ-Query in eine konkrete Liste.
 		public List<CollectableCard> CardsOrderedByName
 		{
 			get
@@ -466,6 +494,10 @@ namespace BigStar.Models
 				return _cards.OrderBy(x => x.Name).ToList<CollectableCard>();
 			}
 		}
+		
+		// PUBLIC PROPERTY: Gibt nur Monster-Karten zurück (gefiltert und sortiert).
+		// 'Where': LINQ-Filter-Methode.
+		// 'x => x.CardFamily == CardFamily.Monsters': Lambda-Expression für Filter.
 		public List<CollectableCard> MonsterCards
 		{
 			get
@@ -473,6 +505,8 @@ namespace BigStar.Models
 				return _cards.Where(x=>x.CardFamily==CardFamily.Monsters).OrderBy(x => x.Name).ToList<CollectableCard>();
 			}
 		}
+		
+		// PUBLIC PROPERTY: Gibt nur Alien-Karten zurück (gefiltert und sortiert).
 		public List<CollectableCard> AlienCards
 		{
 			get

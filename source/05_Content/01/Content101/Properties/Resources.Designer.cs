@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// HINWEIS: Diese Datei wurde automatisch generiert.
+// ZWECK: Stellt typsicheren Zugriff auf Ressourcen (Strings, Bilder, etc.) bereit.
+// WICHTIG: Änderungen sollten in der .resx-Datei vorgenommen werden, nicht hier.
+
 namespace Content101.Properties {
     using System;
     
