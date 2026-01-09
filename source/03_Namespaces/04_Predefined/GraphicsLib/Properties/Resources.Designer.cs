@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// Graphics Library Ressourcen-Namespace.
 namespace BigStar.Lib.Graphics.Properties {
     using System;
     
@@ -19,15 +20,20 @@ namespace BigStar.Lib.Graphics.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
+    
+    // Ressourcen-Klasse für Graphics Library.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
         
+        // ResourceManager.
         private static global::System.Resources.ResourceManager resourceMan;
         
+        // CultureInfo.
         private static global::System.Globalization.CultureInfo resourceCulture;
         
+        // Konstruktor.
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
@@ -35,6 +41,8 @@ namespace BigStar.Lib.Graphics.Properties {
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
+        
+        // ResourceManager-Property.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
@@ -50,6 +58,8 @@ namespace BigStar.Lib.Graphics.Properties {
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
+        
+        // Culture-Property.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {

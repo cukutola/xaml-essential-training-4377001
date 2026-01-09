@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// Properties-Namespace für Ressourcen-Verwaltung.
 namespace UnderstandNamespaces.Properties {
     using System;
     
@@ -19,15 +20,21 @@ namespace UnderstandNamespaces.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
+    
+    // Autogenerierte Klasse für typsicheren Ressourcen-Zugriff.
+    // ZWECK: Strings, Bilder, und andere Ressourcen typsicher abrufen.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
         
+        // ResourceManager: Verwaltet Zugriff auf .resx-Ressourcen.
         private static global::System.Resources.ResourceManager resourceMan;
         
+        // CultureInfo: Legt Sprache/Region für Ressourcen fest.
         private static global::System.Globalization.CultureInfo resourceCulture;
         
+        // Konstruktor: Wird nicht direkt aufgerufen.
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
@@ -35,10 +42,14 @@ namespace UnderstandNamespaces.Properties {
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
+        
+        // ResourceManager-Property: Singleton für Ressourcen-Zugriff.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
+                // Lazy Initialization.
                 if (object.ReferenceEquals(resourceMan, null)) {
+                    // Erstellt ResourceManager mit vollqualifiziertem Ressourcen-Namen.
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UnderstandNamespaces.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
@@ -50,6 +61,8 @@ namespace UnderstandNamespaces.Properties {
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
+        
+        // Culture-Property: Überschreibt Standard-Kultur für Ressourcen.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {

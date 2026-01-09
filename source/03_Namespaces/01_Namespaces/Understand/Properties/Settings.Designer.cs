@@ -8,15 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// Properties-Namespace: Container für Settings-Verwaltung.
 namespace UnderstandNamespaces.Properties {
     
     
+    // Autogenerierte Settings-Klasse.
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    
+    // Settings-Klasse: Typsicherer Zugriff auf App-Einstellungen.
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
+        // Singleton-Instanz: Thread-sicher und global verfügbar.
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
+        // Default-Property: Zugriffspunkt für Settings.
         public static Settings Default {
             get {
                 return defaultInstance;

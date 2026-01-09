@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// Properties-Namespace für Control Library Ressourcen.
 namespace BigStar.Lib.Controls.Properties {
     using System;
     
@@ -19,15 +20,21 @@ namespace BigStar.Lib.Controls.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
+    
+    // Ressourcen-Klasse für BigStar Control Library.
+    // ZWECK: Typsicherer Zugriff auf Library-Ressourcen.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
         
+        // ResourceManager für Ressourcen-Zugriff.
         private static global::System.Resources.ResourceManager resourceMan;
         
+        // CultureInfo für Lokalisierung.
         private static global::System.Globalization.CultureInfo resourceCulture;
         
+        // Konstruktor.
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
@@ -35,10 +42,14 @@ namespace BigStar.Lib.Controls.Properties {
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
+        
+        // ResourceManager-Property.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
+                // Lazy Initialization.
                 if (object.ReferenceEquals(resourceMan, null)) {
+                    // Vollqualifizierter Ressourcen-Name für die Control Library.
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BigStar.Lib.Controls.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
@@ -50,6 +61,8 @@ namespace BigStar.Lib.Controls.Properties {
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
+        
+        // Culture-Property für Sprachumschaltung.
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {
