@@ -1,36 +1,60 @@
-﻿using System;
+﻿// Standard .NET Namespaces
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// Namespace für die Datenmodelle der BigStar Sammelkarten-Anwendung
 namespace BigStar.Models
 {
+	// Datenquelle (Data Source) für Sammelkarten.
+	// Diese Klasse fungiert als Repository/Data Provider und erstellt eine In-Memory-Sammlung
+	// von Sammelkarten. In einer echten Anwendung würde dies typischerweise aus einer Datenbank
+	// oder einem Web-Service geladen werden.
 	public class CardSource
 	{
+		// Private Feld zur Speicherung aller Karten.
+		// 'List<CollectableCard>': Generische Liste, die CollectableCard-Objekte enthält.
+		// 'private': Nur innerhalb dieser Klasse sichtbar - Daten werden über Properties exponiert.
+		// '_cards': Underscore-Präfix ist eine Namenskonvention für private Felder.
 		private List<CollectableCard> _cards;
+		// Konstruktor: Wird aufgerufen, wenn eine neue CardSource-Instanz erstellt wird.
+		// Hier werden alle Sammelkarten mit ihren Daten initialisiert.
 		public CardSource()
 		{
+			// Initialisiert die leere Liste für Karten.
+			// 'new List<CollectableCard>()': Erstellt eine neue, leere Liste im Heap-Speicher.
 			_cards = new List<CollectableCard>();
+			// Temporäre Variable zum Erstellen einzelner Karten.
+			// Wird wiederverwendet, um Speicher zu sparen (statt für jede Karte eine neue Variable).
 			CollectableCard card;
+			// Erstellt die erste Monster-Karte: "Mingle"
+			// Object Initializer Syntax: Erstellt ein Objekt und setzt Properties in einem Schritt.
+			// Dies ist kompakter und lesbarer als einzelne Property-Zuweisungen.
 			card = new CollectableCard
 			{
-				Id = 101,
-				CardFamily = CardFamily.Monsters,
+				Id = 101,  // Eindeutige ID im 100er-Bereich für Monster
+				CardFamily = CardFamily.Monsters,  // Kategorisierung als Monster-Karte
 				Name = "Mingle",
 				Slogan = "Double Trouble",
 				EyeCount = 2,
-				CatalogPrice = 5.99M,
+				CatalogPrice = 5.99M,  // 'M' Suffix für decimal-Literal
 				BidPrice = 15.95M,
-				ImageUri = "Images/Monster-Mingle-card.png",
+				ImageUri = "Images/Monster-Mingle-card.png",  // Relativer Pfad zum Bild
 				Description = "Mingle excels at doing twice the work in half the time, with pinpoint accuracy.  These skills serve her well in her role as Senior Data Analyst for an international cloud computing company. She's also got a penchant for ballroom dance, line dancing, and pretty much any kind of activity that lets her groove to music.",
-				PopularityIndex = 890,
+				PopularityIndex = 890,  // Hoher Wert = beliebt, kein Rabatt (>= 450)
 
 
 				TeamName = TeamNames.BlueShadows,
 			};
+			// Fügt Detail-Informationen zum Dictionary hinzu.
+			// 'Add(key, value)': Methode zum Hinzufügen von Key-Value-Paaren.
+			// Diese Details können in der UI für zusätzliche Informationen angezeigt werden.
 			card.Details.Add("Best Smile", "Yes");
 			card.Details.Add("Antenna", "None");
 
+			// Fügt die fertige Karte zur Liste hinzu.
+			// 'Add()': Hängt das Element ans Ende der Liste an.
 			_cards.Add(card);
 
 
@@ -432,51 +456,93 @@ namespace BigStar.Models
 			_cards.Add(card);
 
 
+			// Generiert für alle Karten eine gekürzte Beschreibung (ShortDescription).
+			// 'foreach': Iteriert über jedes Element in der _cards-Liste.
+			// 'var': Typ-Inferenz - der Compiler weiß, dass currentCard vom Typ CollectableCard ist.
 			foreach (var currentCard in _cards)
 			{
+				// Setzt die ShortDescription-Property auf eine gekürzte Version der Beschreibung.
+				// GetShortText() schneidet den Text auf 140 Zeichen ab.
+				// "+ "..."": Fügt Ellipsis hinzu, um anzuzeigen, dass der Text gekürzt wurde.
+				// Dies ist nützlich für Vorschauansichten in Listen, wo nicht der gesamte Text 
+				// angezeigt werden kann.
 				currentCard.ShortDescription = GetShortText(currentCard.Description, 140) + "...";
 		 	}
 
 
 		}
+		// Private Hilfsmethode zum Kürzen von Text.
+		// 'private': Nur innerhalb dieser Klasse verwendbar - Implementation Detail.
+		// 'string': Rückgabetyp ist ein String (der gekürzte Text).
+		// Parameter 'String candidate': Der zu kürzende Text (String und string sind äquivalent).
+		// Parameter 'int charCount': Maximale Anzahl von Zeichen.
 		private string GetShortText(String candidate, int charCount)
 		{
+			// Prüft, ob der Text länger als die gewünschte Länge ist.
 			if (candidate.Length > charCount)
 			{
+				// 'Substring(startIndex, length)': Extrahiert einen Teil des Strings.
+				// Hier: von Index 0 bis charCount (erste 140 Zeichen).
 				return candidate.Substring(0, charCount);
 			}
 			else
 			{
+				// Text ist kürzer oder gleich lang - gib ihn unverändert zurück.
 				return candidate;
 			}
 
 
 		}
+		// Public Property für den Zugriff auf alle Karten.
+		// Read-Only Property (nur Getter) - externe Aufrufer können die Liste lesen, aber nicht ersetzen.
+		// In WPF kann dies direkt für Datenbindung verwendet werden: ItemsSource="{Binding CollectibleCards}"
 		public List<CollectableCard> CollectibleCards
 		{
 			get
 			{
+				// Gibt die interne _cards-Liste zurück.
+				// HINWEIS: Dies gibt die Original-Liste zurück, nicht eine Kopie.
+				// Aufrufer könnten theoretisch .Add()/.Remove() darauf aufrufen.
+				// Best Practice wäre IReadOnlyList<T> oder eine Kopie zurückzugeben.
 				return _cards;
 			}
 		}
+		// Property für sortierte Karten (nach Name).
+		// Read-Only Property - gibt jedes Mal eine neu sortierte Liste zurück.
+		// Dies ist nützlich für Datenbindung in WPF, wenn Karten alphabetisch angezeigt werden sollen.
 		public List<CollectableCard> CardsOrderedByName
 		{
 			get
 			{
+				// LINQ-Abfrage: Sortiert die Karten nach Name und konvertiert zu List.
+				// 'OrderBy(x => x.Name)': Lambda-Expression - sortiert aufsteigend nach Name-Property.
+				// 'ToList<CollectableCard>()': Konvertiert das IOrderedEnumerable zurück zu List.
+				// WICHTIG: Dies erstellt eine NEUE Liste bei jedem Aufruf - keine Caching.
 				return _cards.OrderBy(x => x.Name).ToList<CollectableCard>();
 			}
 		}
+		// Property für gefilterte und sortierte Monster-Karten.
+		// Gibt nur Karten der Familie "Monsters" zurück, sortiert nach Name.
 		public List<CollectableCard> MonsterCards
 		{
 			get
 			{
+				// LINQ-Abfrage mit Where-Filter und OrderBy-Sortierung:
+				// 'Where(x => x.CardFamily == CardFamily.Monsters)': Filtert nur Monster-Karten.
+				// 'OrderBy(x => x.Name)': Sortiert alphabetisch nach Name.
+				// 'ToList<CollectableCard>()': Konvertiert das Ergebnis zu einer Liste.
+				// Dies ist eine deklarative Abfrage - lesbarer als imperative foreach-Schleifen.
 				return _cards.Where(x=>x.CardFamily==CardFamily.Monsters).OrderBy(x => x.Name).ToList<CollectableCard>();
 			}
 		}
+		// Property für gefilterte und sortierte Alien-Karten.
+		// Analog zu MonsterCards, aber filtert nach CardFamily.Aliens.
 		public List<CollectableCard> AlienCards
 		{
 			get
 			{
+				// LINQ-Abfrage: Filtert Alien-Karten und sortiert sie alphabetisch.
+				// Diese Property wird in MainWindow.xaml.cs für die AlienListBox verwendet.
 				return _cards.Where(x => x.CardFamily == CardFamily.Aliens).OrderBy(x => x.Name).ToList<CollectableCard>();
 			}
 		}
