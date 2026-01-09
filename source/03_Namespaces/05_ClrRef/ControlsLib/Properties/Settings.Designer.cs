@@ -8,15 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+// Control Library Properties-Namespace (ClrRef-Demo).
 namespace BigStar.Lib.Controls.Properties {
     
     
+    // Autogenerierte Settings-Klasse.
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    
+    // Settings für Control Library.
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
+        // Singleton-Instanz.
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
+        // Zugriffspunkt.
         public static Settings Default {
             get {
                 return defaultInstance;
