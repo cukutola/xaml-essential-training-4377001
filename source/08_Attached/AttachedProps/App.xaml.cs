@@ -8,7 +8,10 @@ using System.Windows;
 
 namespace AttachedProps {
 	/// <summary>
-	/// Interaction logic for App.xaml
+	/// App-Klasse: Der Einstiegspunkt der WPF-Anwendung.
+	/// Diese Klasse erbt von Application und steuert den Lebenszyklus der Anwendung.
+	/// Die zugehörige App.xaml definiert typischerweise das StartupUri (welches Fenster zuerst geöffnet wird)
+	/// und anwendungsweite Ressourcen wie Styles und Templates, die auch Attached Properties verwenden können.
 	/// </summary>
 	public partial class App : Application {
 	}

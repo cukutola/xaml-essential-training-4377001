@@ -15,12 +15,17 @@ using System.Windows.Shapes;
 namespace AttachedProps
 {
     /// <summary>
-    /// Interaction logic for TooltipExample.xaml
+    /// Tooltip-Beispiel: Demonstriert die Verwendung von Attached Properties.
+    /// ToolTip ist ein klassisches Beispiel für eine Attached Property - jedes UI-Element
+    /// kann ein ToolTip erhalten, obwohl nicht jedes Element selbst eine ToolTip-Property definiert.
+    /// VERWENDUNG IN XAML: <Button ToolTip="Mein Tooltip Text" />
     /// </summary>
     public partial class TooltipExample : Window
     {
         public TooltipExample()
         {
+            // InitializeComponent(): Lädt und initialisiert die XAML-UI für dieses Fenster.
+            // Hier werden alle in der XAML definierten Attached Properties (z.B. ToolTip) gesetzt.
             InitializeComponent();
         }
     }
