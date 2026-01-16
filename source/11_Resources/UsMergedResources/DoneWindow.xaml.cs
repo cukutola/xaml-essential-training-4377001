@@ -17,10 +17,37 @@ namespace UseMergedResources
     /// <summary>
     /// Interaction logic for DoneWindow.xaml
     /// </summary>
+    /// <remarks>
+    /// DONE WINDOW - MergedDictionaries Abschluss-Demonstration
+    /// 
+    /// Dieses Window zeigt das Endergebnis der MergedDictionaries-Demonstration.
+    /// Es verwendet die zusammengeführten ResourceDictionaries aus verschiedenen Quellen.
+    /// 
+    /// MERGEDDICTIONARIES IN DER PRAXIS:
+    /// Dieses Window nutzt typischerweise Resources aus:
+    /// - Application.Resources (globale Resources)
+    /// - Externe ResourceDictionary-Dateien (über MergedDictionaries)
+    /// - Lokale Window.Resources (optionale Überschreibungen)
+    /// 
+    /// RESOURCE-ZUGRIFF:
+    /// Alle zusammengeführten Resources sind transparent verfügbar:
+    /// <Button Style="{StaticResource MyButtonStyle}"/>
+    /// 
+    /// Die Quelle der Resource (Application, Merged Dictionary, oder lokal)
+    /// ist für das verwendende Control irrelevant - WPF findet sie automatisch
+    /// durch den hierarchischen Lookup-Mechanismus.
+    /// </remarks>
     public partial class DoneWindow : Window
     {
         public DoneWindow()
         {
+            // InitializeComponent() lädt:
+            // 1. Alle MergedDictionaries aus Application.Resources
+            // 2. Alle MergedDictionaries aus Window.Resources
+            // 3. Alle lokalen Resources
+            // 
+            // Alle diese Resources stehen dann für StaticResource/DynamicResource
+            // Markup Extensions zur Verfügung
             InitializeComponent();
         }
     }
